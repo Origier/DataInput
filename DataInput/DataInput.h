@@ -4,8 +4,6 @@
 
 #include <string>
 #include <iostream>
-#include <limits>
-#include <ios>
 
 // Gets a double value from the user while ensuring that the data is valid
 double get_double() {
@@ -14,8 +12,11 @@ double get_double() {
 	bool has_decimal; // used for ensuring there is only one decimal 
 	bool all_num;
 	while (true) {
-		std::cin.ignore();
 		std::getline(std::cin, tester_string);
+		// Resets the loop if the input string is empty
+		if (tester_string.empty()) {
+			continue;
+		}
 		all_num = true;
 		has_decimal = false;
 		// Looping over the string and testing to ensure that each charater is a part of the valid characters set
